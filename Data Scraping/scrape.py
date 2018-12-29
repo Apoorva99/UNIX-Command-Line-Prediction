@@ -1,10 +1,40 @@
-keyw = '3dborder'
-number_i = "3"
+"""
+
+Before running the program ensure:
+
+1. Variables <keyw> and <number_i> are set accordingly (refer the website: https://linux.die.net/man/).
+
+
+
+
+
+"""
+
+
+
+keyw = 'keyword_containing_sufficient_data'
+number_i = "manual_number"
+
+
+
+
+
 url_final = "https://linux.die.net/man/"+number_i+ "/"
+
+
 
 import requests
 from bs4 import BeautifulSoup
 import csv
+import time
+import requests
+
+
+
+
+
+
+
 
 
 page = requests.get(url_final)
@@ -214,17 +244,14 @@ def write_final():
 
         
         
-import time
-import requests
 
-# DON'T ACTUALLY DO THIS. 
-# THERE ARE BETTER WAYS. HANG ON!
+
+
 
 def final_catch():
     try:
         write_final()
     except Exception:
-        # sleep for a bit in case that helps
         print("will sleep for "+ "10"  + " seconds")
         time.sleep(10)
         # try again
@@ -233,7 +260,7 @@ def final_catch():
         try:
             cleanup()
         except:
-            pass # ignore errors in cleanup
+            pass
 
 
 
