@@ -1,4 +1,4 @@
-keyw = '3dborder'
+keyw = 'keyword_containing_sufficient_data'
 number_i = "3"
 url_final = "https://linux.die.net/man/"+number_i+ "/"
 
