@@ -1,4 +1,11 @@
 import pandas as pd
+import re
+import numpy as np
+import multiprocessing
+
+
+
+# Reading File
 knowledge_base_data = pd.read_csv("input_data.csv")
 data = knowledge_base_data[:]
 
@@ -20,11 +27,11 @@ text_file.close()
 
 len(complete_data)
 
-import re
+
 stre = complete_data
 my_new_string = re.sub('[^ a-zA-Z0-9]', '', stre)
 
-print("**********1**********")
+
 
 dataf = []
 
@@ -55,7 +62,7 @@ num_arr_123 = []
 for i in range(nphi):
     num_arr_123.append(len(dataf[1][i]))
     
-import numpy as np    
+   
 np.mean(num_arr_123)
     
 q12 = 0
@@ -70,20 +77,11 @@ while q12<a12:
 
 
 nphi = len(dataffin)
-
-
     
   
 a1 = []
 for i in range(nphi):
     a1.append(0)
-
-
-
- 
-print("**********3**********")  
-
-
 
 fast = [] 
 for i in range(nphi):
@@ -96,7 +94,7 @@ a2 = []
 guestFile = open("guestList.csv","w")
 guestFile.close()
 
-import numpy as np
+# Main function supporting Parallel Computing, Append used instead
 def calc(i):
     a2 = []
     for i1 in range(nphi-1):
@@ -109,12 +107,9 @@ def calc(i):
             ophi += 1            
             for k in range(len(dataf[1][i])):
                 for l in range(len(dataf[1][j])):
-                    if dataf[1][i][k] == dataf[1][j][l]:                        
-
+                    if dataf[1][i][k] == dataf[1][j][l]:
                         a2[ophi] += 1
-            print(str(i)+"---------------"+str(j)+"/"+str(nphi)+"---")
-            
-            
+            print(str(i)+"---------------"+str(j)+"/"+str(nphi)+"---")           
     max_arr = [0,0,0,0,0]
     max_arr[0] = np.argmax(a2)
     a2[np.argmax(a2)] = 0
@@ -125,19 +120,10 @@ def calc(i):
     max_arr[3] = np.argmax(a2)
     a2[np.argmax(a2)] = 0
     max_arr[4] = np.argmax(a2)
-
-    
-
-
     for j1 in range(5):
         if max_arr[j1] >= i:
-            max_arr[j1] += 1     
-    
-
+            max_arr[j1] += 1  
     print(max_arr)
-    
-    
-
     for entries in max_arr :
         guestFile = open("guestList.csv","a")
         guestFile.write(knowledge_base_data.loc[i,"Commands"]+","+knowledge_base_data.loc[entries,"Commands"]+","+str(i))
@@ -149,7 +135,7 @@ def calc(i):
 
 
 
-import multiprocessing
+# Run on a GPU
 pool = multiprocessing.Pool(processes=100)
 r = pool.map(calc, fast)
 pool.close()
