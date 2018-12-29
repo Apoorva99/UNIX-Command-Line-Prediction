@@ -1,7 +1,3 @@
-import sys
-sys.setrecursionlimit(1000000000)
-
-
 keyw = '3dborder'
 number_i = "3"
 url_final = "https://linux.die.net/man/"+number_i+ "/"
