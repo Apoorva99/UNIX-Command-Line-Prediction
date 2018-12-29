@@ -1,5 +1,24 @@
+"""
+
+Before running the program ensure:
+
+1. Variables <keyw> and <number_i> are set accordingly (refer the website: https://linux.die.net/man/).
+
+
+
+
+
+"""
+
+
+
 keyw = 'keyword_containing_sufficient_data'
 number_i = "manual_number"
+
+
+
+
+
 url_final = "https://linux.die.net/man/"+number_i+ "/"
 
 
