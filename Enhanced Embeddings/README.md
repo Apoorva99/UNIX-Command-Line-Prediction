@@ -7,4 +7,4 @@ We have used joint learning model for learning word vector representations from 
 - **convert.c** is used to convert the binary coocurance file obtained from https://github.com/stanfordnlp/GloVe. 
 - **coocurance.txt** is the coocurance matrix obtained after the conversion.
 - **vocab.txt** is the vocaulary of our corpus
-- **mapped_cooccur.txt** is our final coocurance file otained after mapping with the help of vocab.txt. This will be the input to JoinReps Model as the edge parameter.
+- **mapped_cooccurence.txt** is our final coocurance file otained after mapping with the help of vocab.txt. This will be the input to JoinReps Model as the edge parameter.
