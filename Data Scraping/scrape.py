@@ -1,5 +1,5 @@
 keyw = 'keyword_containing_sufficient_data'
-number_i = "3"
+number_i = "manual_number"
 url_final = "https://linux.die.net/man/"+number_i+ "/"
 
 
